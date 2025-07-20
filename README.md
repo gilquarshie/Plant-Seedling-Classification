@@ -30,3 +30,97 @@ The goal of the project is to create a classifier capable of determining a plant
 * Shepherds Purse
 * Small-flowered Cranesbill
 * Sugar beet
+
+## Results
+Three different models were trained and evaluated to classify plant species from image
+| Model                   | Training Accuracy | Validation Accuracy |
+| ----------------------- | ----------------- | ------------------- |
+| Base Model              | 79.71%            | 59.90%              |
+| ReduceLRonPlateau Model | 86.65%            | 74.75%              |
+| Data Augmentation Model | 89.89%        | 87.46%          |
+
+The Data Augmentation model showed the best performance, significantly improving generalization and reducing overfitting.
+
+However, the model frequently misclassified Black-grass as Loose Silky-bent, indicating that these two classes are visually similar and difficult to distinguish with the current dataset size and quality.
+
+To further improve accuracy, particularly for confusing classes, a partnership with companies in the agricultural or botanical sector is recommended. Such collaborations could facilitate access to a larger and more diverse labeled dataset, enabling more robust model training and better classification performance.
+
+## 📦 Key Libraries Used
+
+* **TensorFlow / Keras** – Model building, training, and data augmentation
+* **OpenCV (`cv2`)** – Image processing and visualization
+* **NumPy & Pandas** – Numerical operations and data handling
+* **Matplotlib & Seaborn** – Data visualization and plotting
+* **Scikit-learn (`sklearn`)** – Data splitting and evaluation metrics
+
+Here's a complete **"Installation & Environment Setup"** section you can add to your **README**, covering both **Google Colab** and **Visual Studio Code (VS Code)**:
+
+---
+
+### ⚙️ Installation & Environment Setup
+
+#### 🟢 Option 1: Using Google Colab (Recommended for Beginners)
+
+No installation required. All key libraries (TensorFlow, OpenCV, NumPy, etc.) come pre-installed.
+
+To run the notebook:
+
+1. Upload your notebook to [Google Colab](https://colab.research.google.com/)
+2. Make sure your runtime is set to **GPU**:
+
+   * Go to `Runtime` > `Change runtime type` > Select **GPU**
+3. Run all cells sequentially
+
+---
+
+#### 💻 Option 2: Using Visual Studio Code (Local Setup)
+
+1. **Install Python** (preferably Python 3.8 or later) from [python.org](https://www.python.org/)
+
+2. **Create a virtual environment** (optional but recommended):
+
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # On Windows: venv\Scripts\activate
+   ```
+
+3. **Install required libraries**:
+
+   ```bash
+   pip install tensorflow opencv-python numpy pandas matplotlib seaborn scikit-learn
+   ```
+
+4. **Install Jupyter Notebook extension for VS Code**:
+
+   * Go to Extensions in VS Code (`Ctrl+Shift+X`)
+   * Search for and install **"Jupyter"**
+
+5. **Launch and run the notebook**:
+
+   * Open `.ipynb` file in VS Code and run cells
+
+Great! Based on your provided pip install command, here’s the content for a **`requirements.txt`** file you can include in your GitHub repo:
+
+---
+
+### 📄 `requirements.txt`
+
+```
+tensorflow==2.15.0
+scikit-learn==1.2.2
+seaborn==0.13.1
+matplotlib==3.7.1
+numpy==1.25.2
+pandas==1.5.3
+opencv-python==4.8.0.76
+```
+
+---
+
+### ✅ How to Use:
+
+To install the dependencies locally using `requirements.txt`, run:
+
+```bash
+pip install -r requirements.txt
+```
